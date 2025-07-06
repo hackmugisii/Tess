@@ -241,12 +241,53 @@ button:hover {
     color: #ff1493;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
     margin-top: 2rem;
-    position: absolute;
-    bottom: 2rem;
-    right: 2rem;
     opacity: 0;
     animation: signatureFadeIn 2s ease-out forwards;
     animation-delay: 3s;
+}
+
+/* Additional signature for mobile */
+.signature-mobile {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.5rem;
+    color: #ff1493;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    margin: 2rem 0;
+    opacity: 0;
+    animation: signatureFadeIn 2s ease-out forwards;
+    animation-delay: 3s;
+}
+
+/* Responsive design for mobile */
+@media screen and (max-width: 768px) {
+    #initial-screen {
+        padding: 2rem;
+    }
+
+    h1 {
+        font-size: 3rem;
+    }
+
+    p {
+        font-size: 1.2rem;
+    }
+
+    .button {
+        padding: 1rem 2rem;
+        font-size: 1rem;
+    }
+
+    .message-container {
+        padding: 2rem;
+    }
+
+    .signature {
+        display: none;
+    }
+
+    .signature-mobile {
+        display: block;
+    }
 }
 
 @keyframes fadeIn {
