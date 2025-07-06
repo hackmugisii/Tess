@@ -1,0 +1,261 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Playfair Display', serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #ff69b4 0%, #ff1493 100%);
+    transition: all 0.5s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Top left rose */
+.top-rose {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    width: 100px;
+    height: 100px;
+    background: url('data:image/svg+xml,%3Csvg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath d="M50 20c-14 0-25 11-25 25s11 25 25 25 25-11 25-25-11-25-25-25zm0 50c-11 0-20-9-20-20s9-20 20-20 20 9 20 20-9 20-20 20zm15-15c0-8.3-6.7-15-15-15s-15 6.7-15 15 6.7 15 15 15 15-6.7 15-15z" fill="%23ff1493"/%3E%3C/svg%3E');
+    background-size: contain;
+    background-repeat: no-repeat;
+    opacity: 0;
+    animation: roseIn 2s ease-out forwards;
+}
+
+/* Bottom right rose */
+.bottom-rose {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 100px;
+    height: 100px;
+    background: url('data:image/svg+xml,%3Csvg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath d="M50 20c-14 0-25 11-25 25s11 25 25 25 25-11 25-25-11-25-25-25zm0 50c-11 0-20-9-20-20s9-20 20-20 20 9 20 20-9 20-20 20zm15-15c0-8.3-6.7-15-15-15s-15 6.7-15 15 6.7 15 15 15 15-6.7 15-15z" fill="%23ff1493"/%3E%3C/svg%3E');
+    background-size: contain;
+    background-repeat: no-repeat;
+    opacity: 0;
+    animation: roseIn 2s ease-out forwards;
+    animation-delay: 0.5s;
+}
+
+@keyframes roseIn {
+    0% {
+        opacity: 0;
+        transform: scale(0) rotate(0deg);
+    }
+    50% {
+        transform: scale(1.2) rotate(180deg);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1) rotate(360deg);
+    }
+}
+
+/* Add z-index to message container to ensure it stays above roses */
+.message-container {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    padding: 4rem;
+    max-width: 800px;
+    border-radius: 30px;
+    box-shadow: 0 0 50px rgba(255, 20, 147, 0.2);
+    animation: fadeIn 2s ease-out;
+}
+
+#initial-screen {
+    text-align: center;
+    padding: 4rem;
+    animation: float 6s ease-in-out infinite;
+    position: relative;
+    z-index: 1;
+}
+
+h1 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 5rem;
+    color: #fff;
+    margin-bottom: 1.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    animation: pop 1s ease-out forwards;
+}
+
+p {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+    color: #fff;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    animation: fadeIn 1s ease-out forwards;
+    animation-delay: 1s;
+}
+
+button {
+    padding: 1.2rem 3rem;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    background: linear-gradient(45deg, #ff69b4, #ff1493);
+    color: white;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 15px rgba(255, 20, 147, 0.3);
+}
+
+button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 25px rgba(255, 20, 147, 0.4);
+}
+
+@keyframes pop {
+    0% {
+        transform: scale(0.5);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+p {
+    font-size: 1.4rem;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+    color: #666;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+button {
+    padding: 1.2rem 3rem;
+    font-size: 1.2rem;
+    background: linear-gradient(45deg, #ff69b4, #ff1493);
+    color: white;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(255, 20, 147, 0.3);
+}
+
+.hidden {
+    display: none;
+}
+
+.background-decoration {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.hearts {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 10px,
+        #ff69b4 10px,
+        #ff69b4 20px
+    );
+    animation: hearts 4s infinite;
+}
+
+.roses {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(
+        -45deg,
+        transparent,
+        transparent 15px,
+        #ff1493 15px,
+        #ff1493 30px
+    );
+    animation: roses 5s infinite;
+}
+
+@keyframes hearts {
+    0% { opacity: 0; }
+    50% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+@keyframes roses {
+    0% { opacity: 0; }
+    50% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+.message-container {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    padding: 4rem;
+    max-width: 800px;
+    
+    border-radius: 30px;
+    box-shadow: 0 0 50px rgba(255, 20, 147, 0.2);
+    animation: fadeIn 2s ease-out;
+}
+
+.message-container p {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    line-height: 1.8;
+    color: #333;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+    margin-bottom: 1.5rem;
+}
+
+.signature {
+    font-family: 'Dancing Script', cursive;
+    font-size: 2rem;
+    color: #ff1493;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    margin-top: 2rem;
+    position: absolute;
+    bottom: 2rem;
+    right: 2rem;
+    opacity: 0;
+    animation: signatureFadeIn 2s ease-out forwards;
+    animation-delay: 3s;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+    100% { transform: translateY(0px); }
+}
